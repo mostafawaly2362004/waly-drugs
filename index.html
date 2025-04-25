@@ -1,0 +1,212 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WALY - أداة إلكترونية لدعم اتخاذ القرار العلاجي</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#database">قاعدة بيانات الأدوية</a></li>
+      <li><a href="#calculator">حاسبة الجرعات</a></li>
+      <li><a href="#assistant">المساعد العلاجي</a></li>
+      <li><a href="#guidelines">الإرشادات العلاجية</a></li>
+      <li><a href="#contact">تواصل معنا</a></li>
+    </ul>
+    <button id="lang-toggle">EN</button>
+  </nav>
+
+  <main>
+    <!-- Drug Database Section -->
+    <section id="database" class="section">
+      <h2>قاعدة بيانات الأدوية</h2>
+      <input type="text" id="drug-search" placeholder="ابحث عن دواء..." />
+      <button id="search-btn">بحث</button>
+      <div id="drug-info"></div>
+    </section>
+
+    <!-- Dose Calculator Section -->
+    <section id="calculator" class="section">
+      <h2>حاسبة الجرعات</h2>
+      <form id="dose-form">
+        <label>اسم الدواء (الاسم العلمي): <input type="text" id="drug-name" required /></label>
+        <label>وزن المريض (كجم): <input type="number" id="weight" required /></label>
+        <label>عمر المريض (سنوات): <input type="number" id="age" required /></label>
+        <label>نسبة الكرياتينين (mg/dL): <input type="number" step="0.01" id="creatinine" required /></label>
+        <label>الجنس:
+          <select id="gender">
+            <option value="male">ذكر</option>
+            <option value="female">أنثى</option>
+          </select>
+        </label>
+        <button type="submit">حساب الجرعة</button>
+      </form>
+      <div id="dose-result"></div>
+    </section>
+
+    <!-- Clinical Assistant Section -->
+    <section id="assistant" class="section">
+      <h2>المساعد العلاجي</h2>
+      <ul>
+        <li>ارتفاع ضغط الدم (HTN)</li>
+        <li>داء السكري (DM)</li>
+        <li>أمراض الكلى المزمنة (CKD)</li>
+        <li>قصور القلب</li>
+        <li>العدوى البكتيرية</li>
+        <li>الربو</li>
+        <li>COPD</li>
+        <li>اضطرابات الدهون</li>
+        <li>ارتجاع المريء (GERD)</li>
+        <li>قرحة المعدة</li>
+      </ul>
+    </section>
+
+    <!-- Guidelines Section -->
+    <section id="guidelines" class="section">
+      <h2>أحدث الإرشادات العلاجية</h2>
+      <div class="tabs">
+        <button class="tab-btn active" data-target="cardio">أمراض القلب</button>
+        <button class="tab-btn" data-target="endo">الغدد الصماء</button>
+        <button class="tab-btn" data-target="renal">أمراض الكلى</button>
+        <button class="tab-btn" data-target="pulm">أمراض الرئة</button>
+        <button class="tab-btn" data-target="infectious">الأمراض المعدية</button>
+        <button class="tab-btn" data-target="gi">الجهاز الهضمي</button>
+      </div>
+      <div class="tab-content" id="cardio">محتوى الإرشادات القلبية...</div>
+      <div class="tab-content" id="endo">محتوى الإرشادات الغدد الصماء...</div>
+      <div class="tab-content" id="renal">محتوى الإرشادات الكلوية...</div>
+      <div class="tab-content" id="pulm">محتوى الإرشادات الرئوية...</div>
+      <div class="tab-content" id="infectious">محتوى الإرشادات المعدية...</div>
+      <div class="tab-content" id="gi">محتوى الإرشادات الهضمية...</div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <h2>تواصل معنا</h2>
+      <p>الدكتور/ مصطفى سعيد والي - صيدلي إكلينيكي</p>
+      <p>هاتف: +201040521686</p>
+      <p>بريد إلكتروني: <a href="mailto:mwaly8715@gmail.com">mwaly8715@gmail.com</a></p>
+      <form id="contact-form">
+        <label>الاسم: <input type="text" id="contact-name" required /></label>
+        <label>البريد الإلكتروني: <input type="email" id="contact-email" required /></label>
+        <label>الرسالة: <textarea id="contact-message" required></textarea></label>
+        <button type="submit">إرسال</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 WALY. جميع الحقوق محفوظة.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+
+/* css/style.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+  direction: rtl;
+}
+.navbar {
+  background: #00447c;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+.section {
+  padding: 2rem;
+  background: #fff;
+  margin: 1rem auto;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #e0e0e0;
+}
+.tab-btn.active {
+  background: #00447c;
+  color: #fff;
+}
+.tab-content {
+  display: none;
+  margin-top: 1rem;
+}
+.tab-content.active {
+  display: block;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #00447c;
+  color: #fff;
+}
+
+// js/script.js
+// Language toggle
+document.getElementById('lang-toggle').addEventListener('click', () => {
+  const htmlEl = document.documentElement;
+  if (htmlEl.lang === 'ar') {
+    htmlEl.lang = 'en'; htmlEl.dir = 'ltr';
+    // TODO: swap text to English translations
+    document.getElementById('lang-toggle').textContent = 'AR';
+  } else {
+    htmlEl.lang = 'ar'; htmlEl.dir = 'rtl';
+    document.getElementById('lang-toggle').textContent = 'EN';
+  }
+});
+
+// Dose calculator logic
+document.getElementById('dose-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const weight = parseFloat(document.getElementById('weight').value);
+  const age = parseInt(document.getElementById('age').value);
+  const creat = parseFloat(document.getElementById('creatinine').value);
+  const gender = document.getElementById('gender').value;
+  // Example: Cockcroft-Gault for CrCl
+  let crcl = ((140 - age) * weight) / (72 * creat);
+  if (gender === 'female') crcl *= 0.85;
+  document.getElementById('dose-result').innerHTML =
+    `<p>معدل تصفية الكرياتينين: ${crcl.toFixed(2)} mL/min</p>`;
+});
+
+// Tabs switch
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.target).classList.add('active');
+  });
+});
